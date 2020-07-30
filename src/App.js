@@ -48,7 +48,7 @@ function App() {
         <div id="col2" className="w-full p-6 relative">
           <img
             src={link}
-            alt="zelda image"
+            alt="zelda"
             className="mt-4 xl:block hidden absolute bottom-0 pl-56 z-0 mb-6"
           />
           <ItemInformation selectedItem={selectedItem} />

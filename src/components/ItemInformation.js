@@ -6,11 +6,6 @@ import Sword from "./Sword";
 export default function ItemInformation({ selectedItem }) {
   const [desc, setDesc] = useState("");
   let i = 0;
-
-  useEffect(() => {
-    typeDesc();
-  }, [selectedItem]);
-
   const typeDesc = () => {
     if (selectedItem.description && i < selectedItem.description.length) {
       setDesc(selectedItem.description.slice(0, i + 1));
@@ -18,6 +13,10 @@ export default function ItemInformation({ selectedItem }) {
     i++;
     setTimeout(typeDesc, 1);
   };
+  useEffect(() => {
+    typeDesc();
+    // eslint-disable-next-line
+  }, [selectedItem]);
 
   function iconDisplay(item) {
     switch (item.category) {

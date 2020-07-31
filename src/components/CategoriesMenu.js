@@ -2,26 +2,8 @@ import React, { useState } from "react";
 import Sword from "./Sword";
 import Armor from "./Armor";
 import Shield from "./Shield";
-import allItems from "../data/items";
 import action from "../assets/sounds/action.mp3";
-
-function getItemsForDisplay(mainCategory) {
-  const emptyItem = {
-    name: null,
-    category: null,
-    icon: null,
-    value: null,
-    isNew: null,
-    description: null,
-  };
-  const items = allItems[mainCategory];
-  const l = items.length;
-  for (let i = 0; i < 15 - l; i++) {
-    items.push(emptyItem);
-  }
-  // console.log(items.length);
-  return items;
-}
+import getItemsForDisplay from "./util/GetItemsForDisplay";
 
 export default function CategoriesMenu({
   setItemMainCategory,

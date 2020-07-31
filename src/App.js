@@ -23,7 +23,7 @@ function App() {
     >
       <div
         id="mainContainer"
-        className="xl:p-6 p-4 xl:flex items-end focus:outline-none"
+        className="xl:p-6 p-4 xl:flex items-end focus:outline-none xl:mt-16"
       >
         <div className="w-full">
           <div className="mx-auto">
@@ -45,11 +45,11 @@ function App() {
             />
           </div>
         </div>
-        <div id="col2" className="w-full p-6 relative">
+        <div id="col2" className="w-full p-6 relative h-full">
           <img
             src={link}
             alt="zelda"
-            className="mt-4 xl:block hidden absolute bottom-0 pl-56 z-0 mb-6"
+            className=" xl:block hidden absolute bottom-0 pl-56 z-0 mb-6"
           />
           <ItemInformation selectedItem={selectedItem} />
         </div>

@@ -48,7 +48,7 @@ export default function ItemInformation({ selectedItem }) {
           {selectedItem.value}
         </span>
       </div>
-      <p className="pt-4 text-sm h-16">{desc}</p>
+      <p className="pt-4 text-sm h-32 md:h-16">{desc}</p>
     </div>
   ) : null;
 }

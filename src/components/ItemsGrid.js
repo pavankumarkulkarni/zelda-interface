@@ -16,7 +16,7 @@ function getItemsForDisplay(mainCategory) {
   };
   const items = allItems[mainCategory];
   const l = items.length;
-  for (let i = 0; i < 25 - l; i++) {
+  for (let i = 0; i < 15 - l; i++) {
     items.push(emptyItem);
   }
   // console.log(items.length);

@@ -15,7 +15,7 @@ function App() {
     " relative my-4 mx-auto w-20 h-20 bg-black border border-zeldalightGray";
   const selectedItemClasses =
     "relative my-4 mx-auto w-20 h-20 bg-black border border-zeldasoftYellow shadow-yellow";
-
+  // console.log(selectedItem);
   return (
     <div
       style={{ fontFamily: "calamity" }}

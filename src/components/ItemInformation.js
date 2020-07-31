@@ -35,7 +35,8 @@ export default function ItemInformation({ selectedItem }) {
         return;
     }
   }
-  return selectedItem.name ? (
+  // console.log(selectedItem);
+  return selectedItem && selectedItem.name !== null ? (
     <div className="p-4 bg-BlackTransparent min-h-full z-10 relative">
       <h1 className="text-lg font-bold border-b border-zeldadarkGray pb-1">
         {selectedItem.name}

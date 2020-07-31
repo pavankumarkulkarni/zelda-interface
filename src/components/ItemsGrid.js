@@ -1,9 +1,27 @@
 import React, { useState } from "react";
 import Item from "./Item";
 
-import items from "../data/items";
+import allItems from "../data/items";
 
 import selectSound from "../assets/sounds/select.mp3";
+
+function getItemsForDisplay(mainCategory) {
+  const emptyItem = {
+    name: null,
+    category: null,
+    icon: null,
+    value: null,
+    isNew: null,
+    description: null,
+  };
+  const items = allItems[mainCategory];
+  const l = items.length;
+  for (let i = 0; i < 25 - l; i++) {
+    items.push(emptyItem);
+  }
+  // console.log(items.length);
+  return items;
+}
 
 export default function ItemsGrid({
   setSelectedItemIndex,
@@ -13,21 +31,32 @@ export default function ItemsGrid({
   setSelectedItem,
   itemMainCategory,
 }) {
-  const weapons = items[itemMainCategory];
-  const l = weapons.length;
+  const weapons = getItemsForDisplay(itemMainCategory);
   const [sound2] = useState(new Audio(selectSound));
-  const emptyItem = {
-    name: null,
-    category: null,
-    icon: null,
-    value: null,
-    isNew: true,
-    description: null,
-  };
-  for (let i = 0; i < 25 - l; i++) {
-    weapons.push(emptyItem);
-  }
 
+  // console.log(items);
+  // const w = items["weapons"];
+  // const s = items["shields"];
+  // const a = items["armors"];
+  // // useEffect(() => {
+  // for (let i = 0; i < 25 - w.length; i++) {
+  //   w.push(emptyItem);
+  // }
+  // console.log(items);
+  // for (let i = 0; i < 25 - s.length; i++) {
+  //   s.push(emptyItem);
+  // }
+  // console.log(items);
+  // for (let i = 0; i < 25 - a.length; i++) {
+  //   a.push(emptyItem);
+  // }
+  // // }, []);
+
+  // // for (let i = 0; i < 25 - l; i++) {
+  // //   weapons.push(emptyItem);
+  // // }
+
+  // console.log(items);
   const indexToXY = (index) => ({ x: index % 5, y: Math.floor(index / 5) });
   const XYToIndex = (x, y) => x + y * 5;
   const handleKeyBoard = (e) => {

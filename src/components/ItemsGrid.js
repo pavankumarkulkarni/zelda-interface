@@ -12,7 +12,7 @@ export default function ItemsGrid({
   setSelectedItem,
   itemMainCategory,
 }) {
-  const weapons = getItemsForDisplay(itemMainCategory);
+  const items = getItemsForDisplay(itemMainCategory);
   const [sound2] = useState(new Audio(selectSound));
 
   const indexToXY = (index) => ({ x: index % 5, y: Math.floor(index / 5) });
@@ -37,7 +37,7 @@ export default function ItemsGrid({
     }
     const i = XYToIndex(x, y);
     setSelectedItemIndex(i);
-    setSelectedItem(weapons[i]);
+    setSelectedItem(items[i]);
     sound2.play();
   };
   return (
@@ -48,7 +48,7 @@ export default function ItemsGrid({
                     sm:grid-cols-5 focus:outline-none
                    "
     >
-      {weapons.map((weapon, index) => (
+      {items.map((weapon, index) => (
         <Item
           key={index}
           item={weapon}

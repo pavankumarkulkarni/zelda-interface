@@ -45,11 +45,11 @@ function App() {
             />
           </div>
         </div>
-        <div id="col2" className="w-full p-6 relative">
+        <div id="col2" className="w-full p-6 xl:relative">
           <img
             src={link}
             alt="zelda"
-            className=" xl:block hidden absolute bottom-0 pl-56 z-0 mb-6 h-full"
+            className=" xl:block hidden xl:absolute xl:bottom-0 pl-56 z-0 mb-6 h-full"
           />
           <ItemInformation selectedItem={selectedItem} />
         </div>

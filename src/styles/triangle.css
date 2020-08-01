@@ -62,3 +62,12 @@
     font-family: "calamity";
     src: url('../assets/fonts/calamity/Calamity-Regular.woff') format("woff");
 }
+
+@keyframes ArrowGrow {
+    50% {
+        color: 'blue'
+    }
+    100% {
+        color: 'red'
+    }
+}

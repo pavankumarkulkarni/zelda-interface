@@ -11,26 +11,49 @@ export default function ItemsGrid({
   selectedItemIndex,
   setSelectedItem,
   itemMainCategory,
+  setItemMainCategory,
 }) {
   const items = getItemsForDisplay(itemMainCategory);
   const [sound2] = useState(new Audio(selectSound));
 
+  const mainCategories = ["weapons", "shields", "armors"];
+  // console.log(mainCategories.indexOf(itemMainCategory));
   const indexToXY = (index) => ({ x: index % 5, y: Math.floor(index / 5) });
   const XYToIndex = (x, y) => x + y * 5;
   const handleKeyBoard = (e) => {
     let { x, y } = indexToXY(selectedItemIndex);
     switch (e.keyCode) {
       case 37:
-        x = x - 1 >= 0 ? x - 1 : 0;
+        x =
+          x - 1 >= 0
+            ? x - 1
+            : mainCategories.indexOf(itemMainCategory) === 0
+            ? 0
+            : 4;
+        if (x === 4) {
+          setItemMainCategory(
+            mainCategories[mainCategories.indexOf(itemMainCategory) - 1]
+          );
+        }
         break;
       case 38:
         y = y - 1 >= 0 ? y - 1 : 0;
         break;
       case 39:
-        x = x === 4 ? 0 : x + 1;
+        x =
+          x !== 4
+            ? x + 1
+            : mainCategories.indexOf(itemMainCategory) === 2
+            ? 4
+            : 0;
+        if (x === 0) {
+          setItemMainCategory(
+            mainCategories[mainCategories.indexOf(itemMainCategory) + 1]
+          );
+        }
         break;
       case 40:
-        y = y === 4 ? 4 : y + 1;
+        y = y === 2 ? 2 : y + 1;
         break;
       default:
         break;

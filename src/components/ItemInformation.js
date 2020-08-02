@@ -3,7 +3,7 @@ import Armor from "./Armor";
 import Shield from "./Shield";
 import Sword from "./Sword";
 
-export default function ItemInformation({ selectedItem }) {
+export default function ItemInformation({ selectedItem, equipped }) {
   const [desc, setDesc] = useState("");
   let i = 0;
   const typeDesc = () => {
@@ -35,20 +35,36 @@ export default function ItemInformation({ selectedItem }) {
         return;
     }
   }
-  // console.log(selectedItem);
   return selectedItem && selectedItem.name !== null ? (
     <div className="m-4 p-4 bg-BlackTransparent z-10 xl:absolute bottom-0 left-0 w-full">
-      <h1 className="text-lg font-bold border-b border-zeldadarkGray pb-1">
-        {selectedItem.name}
-      </h1>
-      <div className="pt-2 flex justify-start items-center">
-        {iconDisplay(selectedItem)}
+      <div
+        className={`pl-4 ${
+          equipped === "true"
+            ? "border-l-4 border-blue-600 "
+            : "border-l-4 border-black "
+        }`}
+      >
+        <h1 className="text-lg font-bold border-b border-zeldadarkGray pb-1">
+          {selectedItem.name}
+        </h1>
+        <div className="pt-2 flex justify-start items-center">
+          {iconDisplay(selectedItem)}
 
-        <span className="inline-block border border-zeldalightGray px-3 ml-4 text-xl ">
-          {selectedItem.value}
-        </span>
+          <span className="inline-block border border-zeldalightGray px-3 ml-4 text-xl ">
+            {selectedItem.value}
+          </span>
+          {equipped === "true" ? (
+            <>
+              <span className="inline-block px-1 ml-4 text-xl ">→</span>
+
+              <span className="inline-block border border-zeldalightGray px-3 ml-2 text-xl ">
+                {selectedItem.value}
+              </span>
+            </>
+          ) : null}
+        </div>
+        <p className="pt-4 text-sm h-32 md:h-16">{desc}</p>
       </div>
-      <p className="pt-4 text-sm h-32 md:h-16">{desc}</p>
     </div>
   ) : null;
 }

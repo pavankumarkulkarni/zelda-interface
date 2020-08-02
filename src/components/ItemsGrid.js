@@ -12,6 +12,7 @@ export default function ItemsGrid({
   setSelectedItem,
   itemMainCategory,
   setItemMainCategory,
+  setEquippedItems,
 }) {
   const items = getItemsForDisplay(itemMainCategory);
   const [sound2] = useState(new Audio(selectSound));
@@ -82,6 +83,7 @@ export default function ItemsGrid({
           selectedItemIndex={selectedItemIndex}
           setSelectedItem={setSelectedItem}
           sound2={sound2}
+          setEquippedItems={setEquippedItems}
         />
       ))}
     </div>

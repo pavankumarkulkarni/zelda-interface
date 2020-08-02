@@ -12,12 +12,12 @@ function App() {
   const [selectedItem, setSelectedItem] = useState(items.weapons[0]);
   const [itemMainCategory, setItemMainCategory] = useState("weapons");
   const mainCategories = ["weapons", "shields", "armors"];
+  const [equippedItems, setEquippedItems] = useState([]);
 
   const itemClasses =
     " relative my-4 mx-6 w-20 h-20 bg-black border border-zeldalightGray";
   const selectedItemClasses =
     "relative my-4 mx-6 w-20 h-20 bg-black border border-zeldasoftYellow shadow-yellow";
-  // console.log(selectedItem);
 
   const handleLeftArrow = (e) => {
     // console.log(itemMainCategory);
@@ -76,6 +76,7 @@ function App() {
               setSelectedItem={setSelectedItem}
               itemMainCategory={itemMainCategory}
               setItemMainCategory={setItemMainCategory}
+              setEquippedItems={setEquippedItems}
             />
             <div
               className={`sm:inline-block hidden cursor-pointer
@@ -98,7 +99,13 @@ function App() {
             alt="zelda"
             className=" xl:block hidden xl:absolute xl:bottom-0 pl-56 z-0 mb-6 h-full"
           />
-          <ItemInformation selectedItem={selectedItem} />
+
+          <ItemInformation
+            selectedItem={selectedItem}
+            equipped={`${
+              equippedItems.indexOf(selectedItem) > -1 ? true : false
+            }`}
+          />
         </div>
       </div>
     </div>

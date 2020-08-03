@@ -77,9 +77,10 @@ function App() {
               itemMainCategory={itemMainCategory}
               setItemMainCategory={setItemMainCategory}
               setEquippedItems={setEquippedItems}
+              equippedItems={equippedItems}
             />
             <div
-              className={`sm:inline-block hidden cursor-pointer
+              className={`sm:inline-block hidden 
                       ${
                         mainCategories.indexOf(itemMainCategory) === 2
                           ? "text-zeldalightGray"

@@ -13,6 +13,8 @@ export default function Item(props) {
     setSelectedItem,
     sound2,
     setEquippedItems,
+    itemMainCategory,
+    equippedItems,
   } = props;
   const [modalDisplay, setModalDisplay] = useState(false);
   const [equipped, setEquipped] = useState(false);
@@ -34,13 +36,14 @@ export default function Item(props) {
       setModalDisplay(true);
     }
   };
-
+  // console.log(item);
+  console.log(equippedItems.indexOf(item));
   return (
     <div
       className={`${
         index === selectedItemIndex ? selectedItemClasses : itemClasses
       }
-      ${equipped ? "bg-blue-700" : "bg-black"}`}
+      ${equippedItems.indexOf(item) > -1 ? "bg-blue-700" : "bg-black"}`}
     >
       {modalDisplay ? (
         <Modal closeModal={closeModal} itemEquipped={itemEquipped} />

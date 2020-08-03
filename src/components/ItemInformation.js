@@ -36,12 +36,12 @@ export default function ItemInformation({ selectedItem, equipped }) {
     }
   }
   return selectedItem && selectedItem.name !== null ? (
-    <div className="m-4 p-4 bg-BlackTransparent z-10 xl:absolute bottom-0 left-0 w-full">
+    <div className=" m-4 p-4 bg-BlackTransparent z-10 xl:absolute bottom-0 left-0 w-full">
       <div
         className={`pl-4 ${
           equipped === "true"
-            ? "border-l-4 border-blue-600 "
-            : "border-l-4 border-black "
+            ? "border-l-4 border-blue-600"
+            : "border-l-4 border-transparent"
         }`}
       >
         <h1 className="text-lg font-bold border-b border-zeldadarkGray pb-1">

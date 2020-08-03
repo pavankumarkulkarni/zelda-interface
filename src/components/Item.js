@@ -13,14 +13,14 @@ export default function Item(props) {
     setSelectedItem,
     sound2,
     setEquippedItems,
-    itemMainCategory,
+    // itemMainCategory,
     equippedItems,
   } = props;
   const [modalDisplay, setModalDisplay] = useState(false);
-  const [equipped, setEquipped] = useState(false);
+  // const [equipped, setEquipped] = useState(false);
 
   const itemEquipped = () => {
-    setEquipped(true);
+    // setEquipped(true);
     setEquippedItems((equippedItems) => [...equippedItems, item]);
   };
 
@@ -36,8 +36,7 @@ export default function Item(props) {
       setModalDisplay(true);
     }
   };
-  // console.log(item);
-  console.log(equippedItems.indexOf(item));
+
   return (
     <div
       className={`${

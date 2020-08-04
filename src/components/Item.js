@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TraingleBox from "./TraingleBox";
 import Modal from "./Modal";
 
@@ -13,14 +13,19 @@ export default function Item(props) {
     setSelectedItem,
     sound2,
     setEquippedItems,
-    // itemMainCategory,
     equippedItems,
+    modalIndex,
   } = props;
+
   const [modalDisplay, setModalDisplay] = useState(false);
-  // const [equipped, setEquipped] = useState(false);
+
+  useEffect(() => {
+    if (index === modalIndex) {
+      setModalDisplay(true);
+    }
+  }, [modalIndex, index]);
 
   const itemEquipped = () => {
-    // setEquipped(true);
     setEquippedItems((equippedItems) => [...equippedItems, item]);
   };
 
@@ -37,12 +42,17 @@ export default function Item(props) {
     }
   };
 
+  // const handleKeyBoard = (e) => {
+  //   console.log(e.keyCode);
+  // };
+
   return (
     <div
       className={`${
         index === selectedItemIndex ? selectedItemClasses : itemClasses
       }
       ${equippedItems.indexOf(item) > -1 ? "bg-blue-700" : "bg-black"}`}
+      // onKeyDown={handleKeyBoard}
     >
       {modalDisplay ? (
         <Modal closeModal={closeModal} itemEquipped={itemEquipped} />

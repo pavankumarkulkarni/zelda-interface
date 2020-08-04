@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Item from "./Item";
 import getItemsForDisplay from "./util/GetItemsForDisplay";
 
@@ -17,9 +17,12 @@ export default function ItemsGrid({
 }) {
   const items = getItemsForDisplay(itemMainCategory);
   const [sound2] = useState(new Audio(selectSound));
+  const divRef = useRef();
 
   const mainCategories = ["weapons", "shields", "armors"];
   // console.log(mainCategories.indexOf(itemMainCategory));
+  const [modalIndex, setModalIndex] = useState(-1);
+
   const indexToXY = (index) => ({ x: index % 5, y: Math.floor(index / 5) });
   const XYToIndex = (x, y) => x + y * 5;
   const handleKeyBoard = (e) => {
@@ -57,6 +60,11 @@ export default function ItemsGrid({
       case 40:
         y = y === 2 ? 2 : y + 1;
         break;
+
+      case 13:
+        setModalIndex(XYToIndex(x, y));
+        break;
+
       default:
         break;
     }
@@ -65,10 +73,16 @@ export default function ItemsGrid({
     setSelectedItem(items[i]);
     sound2.play();
   };
-  // console.log(itemMainCategory);
+
+  useEffect(() => {
+    divRef.current.focus();
+  }, [divRef]);
+
   return (
     <div
       tabIndex="0"
+      // // autofocus="true"
+      ref={divRef}
       onKeyDown={handleKeyBoard}
       className="grid grid-cols-3 justify-center
                     sm:grid-cols-5 focus:outline-none
@@ -88,6 +102,7 @@ export default function ItemsGrid({
           setEquippedItems={setEquippedItems}
           itemMainCategory={itemMainCategory}
           equippedItems={equippedItems}
+          modalIndex={modalIndex}
         />
       ))}
     </div>

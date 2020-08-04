@@ -38,6 +38,9 @@ function App() {
     <div
       style={{ fontFamily: "calamity" }}
       className="bg-zeldadarkGreen text-white h-full min-h-screen xl:p-8 p-2"
+      // tabIndex="0"
+      // autofocus="true"
+      // ref={divRef}
     >
       <div
         id="mainContainer"

@@ -29,6 +29,11 @@ export default function Item(props) {
     setEquippedItems((equippedItems) => [...equippedItems, item]);
   };
 
+  const itemUnEquipped = () => {
+    equippedItems.splice(equippedItems.indexOf(item), 1);
+    setEquippedItems([...equippedItems]);
+  };
+
   const closeModal = () => {
     setModalDisplay(false);
   };
@@ -55,7 +60,12 @@ export default function Item(props) {
       // onKeyDown={handleKeyBoard}
     >
       {modalDisplay ? (
-        <Modal closeModal={closeModal} itemEquipped={itemEquipped} />
+        <Modal
+          closeModal={closeModal}
+          itemEquipped={itemEquipped}
+          isEquipped={equippedItems.indexOf(item)}
+          itemUnEquipped={itemUnEquipped}
+        />
       ) : null}
       <div onClick={handleClick}>
         <img src={item.icon} alt="" title={item.title} />

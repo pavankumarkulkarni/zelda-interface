@@ -112,6 +112,17 @@ function App() {
           />
         </div>
       </div>
+      <div className="flex justify-center">
+        <div className="mx-6">
+          <h2 className="text-xl font-bold">Keyboard Shortcuts:</h2>
+          <p>Arrow Keys</p>
+          <p>Enter key</p>
+        </div>
+        <div>
+          <h2 className="text-xl font-bold">Credits:</h2>
+          <p>Items: Zelda Gamepedia</p>
+        </div>
+      </div>
     </div>
   );
 }

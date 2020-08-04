@@ -36,7 +36,7 @@ export default function ItemInformation({ selectedItem, equipped }) {
     }
   }
   return selectedItem && selectedItem.name !== null ? (
-    <div className=" m-4 p-4 bg-BlackTransparent z-10 xl:absolute bottom-0 left-0 w-3/4 mx-auto">
+    <div className=" m-4 p-4 bg-BlackTransparent z-10 xl:absolute bottom-0 left-0 sm:w-3/4 w-full mx-auto">
       <div
         className={`pl-4 ${
           equipped === "true"
